@@ -9,7 +9,25 @@
 	<body>
 		<div class= "container"  ng-controller="contactlistCtrl">
 			<h1>Contact List App</h1>
-			<input ng-model ="test">{{test}}
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Contact</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat ="contact in contactList">
+						<td>{{contact.name}}</td>
+						<td>{{contact.email}}</td>
+						<td>{{contact.contact}}</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 
 		<!-- Added all scripts at the bottom -->
@@ -17,6 +35,6 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular-route.min.js"></script>
 		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="controllers/contactlistCtrl.js"></script>
 	</body>
 </html>
