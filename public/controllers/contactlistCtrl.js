@@ -1,23 +1,27 @@
 var app = angular.module('contactListApp',[]);
 
 app.controller('contactlistCtrl', function($scope, $http){
-	
+
 	var refresh = function(){
 		$http.get('/contactList').success(function(response){
 			console.log('I got the data that requested');
 			$scope.contactList = response;
 			$scope.contact = "";
-		});		
+		});
 	};
 
 	refresh();
 
 	$scope.addContact = function(){
-		console.log($scope.contact);
-		$http.post('/contactList', $scope.contact).success(function(response){
-			console.log(response);			
-			refresh();
-		});
+		if(	$scope.contact != "" ){
+			console.log($scope.contact);
+			$http.post('/contactList', $scope.contact).success(function(response){
+				console.log(response);
+				refresh();
+			});
+		}else{
+			alert('Enter atleast one field');
+		}
 	};
 
 	$scope.remove = function(id){
@@ -45,5 +49,3 @@ app.controller('contactlistCtrl', function($scope, $http){
 		$scope.contact = " ";
 	}
 });
-
-	
